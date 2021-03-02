@@ -1,15 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import Stopwatch from "./Stopwatch";
+import Clock from "./Clock";
+import { makeStyles } from "@material-ui/core/styles";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Stopwatch</h1>
-        <Stopwatch />
-      </div>
-    );
-  }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+}));
+
+export default function App() {
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <Clock />
+      <Stopwatch />
+    </div>
+  );
 }
-
-export default App;
