@@ -1,0 +1,121 @@
+body {
+  font-family: monospace;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  margin-top: 5%;
+  background-color: rgb(12, 14, 12);
+}
+
+#con {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#left, #right {
+  font-size: 40px;
+}
+
+#wrapper {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#time {
+  margin: 0 auto 20px auto;
+  width: fit-content;
+  margin-top: 5%;
+}
+
+#h1_border {
+  position: relative;
+  height: 20em;
+  width: 20em;
+  border-radius: 50%;
+  border: 5px solid rgb(14, 63, 197);
+}
+
+#h1_border h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  margin: auto;
+  width: fit-content;
+}
+
+h1 {
+  margin: 0;
+  color: rgb(14, 63, 197);
+  font-size: 15px;
+}
+
+.appClock {
+  color: rgba(155, 150, 150, 0.3);
+  font-size: 70px;
+}
+
+p {
+  color: #fff;
+}
+
+#lap {
+  padding-bottom: 10%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container {
+  min-height: 500px;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+#button_div {
+  background-color: rgba(12, 14, 12, 0.8);
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  width: inherit;
+  position: fixed;
+}
+
+#button_div .but {
+  margin: 20px 20px;
+  width: 30%;
+  height: 5rem;
+  font-weight: bold;
+  font-size: medium;
+}
+
+ul>li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+ul>li:not(:last-child)::after {
+  content: " / ";
+}
+
+ul>li>a{
+  text-decoration: none;
+  color: #fff;
+}
+
+@media only screen and (min-width: 1200px) {
+  #left, #right {
+  /* display: inline-block; */
+  }
+  
+}
+
+@media only screen and (max-width: 1200px) {
+  #left, #right {
+    /* margin: 0 auto;
+    max-width: 80%; */
+  }
+}
+
+
+
