@@ -27,9 +27,10 @@ export default function Clock() {
         clock: {
           date:
             new Date().getDay() +
-            "/" +
+            dayChar(new Date().getDay()) +
+            " " +
             new Date().toLocaleString("default", { month: "short" }) +
-            "/" +
+            ", " +
             new Date().getFullYear(),
           hours: new Date().getHours(),
           minutes: new Date().getMinutes(),
@@ -39,6 +40,19 @@ export default function Clock() {
       };
     });
   };
+
+  function dayChar(val) {
+    switch (Number(val)) {
+      case 3 || 23:
+        return "rd";
+      case 2 || 22:
+        return "nd";
+      case 1 || 21:
+        return "st";
+      default:
+        return "th";
+    }
+  }
   return (
     <>
       <h1 id="right" className="appClock">
@@ -49,12 +63,12 @@ export default function Clock() {
           minimumIntegerDigits: 2,
           useGrouping: false,
         }) +
-          " : " +
+          ":" +
           timeState.clock.minutes.toLocaleString(undefined, {
             minimumIntegerDigits: 2,
             useGrouping: false,
           }) +
-          " : " +
+          ":" +
           timeState.clock.seconds.toLocaleString(undefined, {
             minimumIntegerDigits: 2,
             useGrouping: false,

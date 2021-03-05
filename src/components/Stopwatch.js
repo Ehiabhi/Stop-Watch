@@ -85,6 +85,7 @@ function Stopwatch() {
     const span2 = document.createElement("span");
     const span3 = document.createElement("span");
     span1.style.color = "#999";
+    cover.style.fontSize = "1.8em";
     span1.innerHTML =
       "# " +
       (lap.childNodes.length + 1).toLocaleString(undefined, {
@@ -94,21 +95,21 @@ function Stopwatch() {
       " ";
     span2.innerHTML =
       " | " +
-      timeState.hours.toLocaleString(undefined, {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-      }) +
-      " : " +
+      // timeState.hours.toLocaleString(undefined, {
+      //   minimumIntegerDigits: 2,
+      //   useGrouping: false,
+      // }) +
+      // " : " +
       timeState.minutes.toLocaleString(undefined, {
         minimumIntegerDigits: 2,
         useGrouping: false,
       }) +
-      " : " +
+      ":" +
       timeState.seconds.toLocaleString(undefined, {
         minimumIntegerDigits: 2,
         useGrouping: false,
       }) +
-      " : " +
+      ":" +
       timeState.ms.toLocaleString(undefined, {
         minimumIntegerDigits: 2,
         useGrouping: false,
@@ -116,27 +117,27 @@ function Stopwatch() {
 
     span3.innerHTML =
       " | " +
-      Math.abs(
-        Number(timeState.hours - timeState.durationStart.hours)
-      ).toLocaleString(undefined, {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-      }) +
-      " : " +
+      // Math.abs(
+      //   Number(timeState.hours - timeState.durationStart.hours)
+      // ).toLocaleString(undefined, {
+      //   minimumIntegerDigits: 2,
+      //   useGrouping: false,
+      // }) +
+      // " : " +
       Math.abs(
         Number(timeState.minutes - timeState.durationStart.minutes)
       ).toLocaleString(undefined, {
         minimumIntegerDigits: 2,
         useGrouping: false,
       }) +
-      " : " +
+      ":" +
       Math.abs(
         Number(timeState.seconds - timeState.durationStart.seconds)
       ).toLocaleString(undefined, {
         minimumIntegerDigits: 2,
         useGrouping: false,
       }) +
-      " : " +
+      ":" +
       Math.abs(
         Number(timeState.ms - timeState.durationStart.ms)
       ).toLocaleString(undefined, {
@@ -230,31 +231,32 @@ function Stopwatch() {
   };
 
   const updateLapUI = () => {
-    debugger;
     lapArray.forEach((cover) => {
       document.getElementById("lap").appendChild(cover);
     });
   };
 
   return (
-    <>
+    <div id="wrapper">
       <div id="time">
         <div id="h1_border">
           <h1>
-            {timeState.hours.toLocaleString(undefined, {
-              minimumIntegerDigits: 2,
-              useGrouping: false,
-            })}{" "}
-            :{" "}
+            {timeState.hours !== 0 &&
+              timeState.hours.toLocaleString(undefined, {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}
+            {timeState.hours !== 0 && " : "}
             {timeState.minutes.toLocaleString(undefined, {
               minimumIntegerDigits: 2,
               useGrouping: false,
-            })}{" "}
-            :{" "}
+            })}
+            {" : "}
             {timeState.seconds.toLocaleString(undefined, {
               minimumIntegerDigits: 2,
               useGrouping: false,
-            })}{" "}
+            })}
+            <br />
             <span>
               {timeState.ms.toLocaleString(undefined, {
                 minimumIntegerDigits: 2,
@@ -311,7 +313,7 @@ function Stopwatch() {
           Lap
         </Button>
       </div>
-    </>
+    </div>
   );
 }
 
